@@ -5,10 +5,7 @@ NBA Stats Graph Database (Neo4j)
 
 ## Description
 
-Proyecto final de Bases de datos No Relacionales, que contiene una base de datos de grafos en Neo4j con informacion sobre partidos, jugadores y equipos de la NBA. 
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Final Project of subject "Base de datos No Relacionales" belonging to the Facultad de Ingenieria, UDELAR.
 
 ## Database Graph Model
 
