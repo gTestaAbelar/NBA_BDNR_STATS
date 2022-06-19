@@ -59,18 +59,3 @@ with graphDB_Driver.session() as graphDB_Session:
         
         # Query the graph    
         nodes = graphDB_Session.run(cqlNodeQuery)
-
-    
-
-    
-
-
-
-
-
-
-
-
-#    print(wanted_df_slice.GAME_ID.values[0])
-#     region_value = 'NA' if isnull(wanted_df_slice.region.values[0]) else wanted_df_slice.region.values[0]
-#     cursor.execute("INSERT INTO dbo.NOC_Region (NOC,region) VALUES (?,?)",wanted_df_slice.NOC.values[0], region_value)

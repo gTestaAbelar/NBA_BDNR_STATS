@@ -55,23 +55,9 @@ with graphDB_Driver.session() as graphDB_Session:
         home_team_query  = 'MERGE (g: Game {id: \'' + game_id +'\'}) MERGE (h: Team {id: \''+ home_team +'\'}) MERGE (g)-[r:HOME_TEAM {PTS: '+ home_pts +', FG_PCT: '+ home_fg_pct +', FT_PCT: '+home_ft_pct+', AST: '+home_ast+', REB: '+home_reb+' }]->(h)'
         # cypher query to create the relationship "AWAY_TEAM" that matches the away team stats of each game
         away_team_query  = 'MERGE (g: Game {id: \'' + game_id +'\'}) MERGE (a: Team {id: \''+ away_team +'\'}) MERGE (g)-[o:AWAY_TEAM {PTS: '+ away_pts +', FG_PCT: '+ away_fg_pct +', FT_PCT: '+away_ft_pct+', AST: '+away_ast+', REB: '+away_reb+' }]->(a)'
+        # cypher query to create the relationship "WINNER" that matches the team winner of each game
+        winner_team_query = 'MERGE (g: Game {id: \'' + game_id +'\'}) MERGE (t: Team {id: \''+ winner_team +'\'}) MERGE (g)-[w:WINNER]-(t)'
         # Query the graph    
         graphDB_Session.run(home_team_query)
         graphDB_Session.run(away_team_query)
-
-        
-
-    
-
-    
-
-
-
-
-
-
-
-
-#    print(wanted_df_slice.GAME_ID.values[0])
-#     region_value = 'NA' if isnull(wanted_df_slice.region.values[0]) else wanted_df_slice.region.values[0]
-#     cursor.execute("INSERT INTO dbo.NOC_Region (NOC,region) VALUES (?,?)",wanted_df_slice.NOC.values[0], region_value)
+        graphDB_Session.run(winner_team_query)
