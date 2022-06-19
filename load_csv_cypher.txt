@@ -1,0 +1,23 @@
+Cypher query to add seasons:
+
+Create seasons:
+LOAD CSV WITH HEADERS FROM 'file:///games.csv' AS row
+MERGE (s: Season {year: row.SEASON + "-"+toString(toInteger(row.SEASON)+1)})
+
+Create Teams:
+LOAD CSV WITH HEADERS FROM 'file:///teams.csv' AS row
+MERGE (t: Team {id: row.TEAM_ID, nickname: row.NICKNAME, abbreviation: row.ABBREVIATION, city: row.CITY, arena: row.ARENA })
+
+Create Games:
+LOAD CSV WITH HEADERS FROM 'file:///games.csv' AS row
+MERGE (g: Game {id: row.GAME_ID, date: date(row.GAME_DATE_EST)})
+
+Add relationship between games and seasons:
+LOAD CSV WITH HEADERS FROM 'file:///games.csv' AS row
+MERGE (g:Game {id: row.GAME_ID})
+MERGE (s:Season {year: row.SEASON + "-"+toString(toInteger(row.SEASON)+1)})
+MERGE (g)-[:FROM_SEASON]->(s)
+
+Add arena to each game: (execute after create_home_away.py)
+MATCH (g:Game)-[:HOME_TEAM]->(t:Team)
+SET g.arena = t.arena
