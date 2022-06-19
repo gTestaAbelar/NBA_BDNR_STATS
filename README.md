@@ -1,4 +1,4 @@
-# BDNR_NBA_STATS
+# NBA_BDNR_STATS
 
 ## Name
 NBA Stats Graph Database (Neo4j)
