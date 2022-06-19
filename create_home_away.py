@@ -2,11 +2,11 @@
 from pandas import read_csv,isnull
 from neo4j import GraphDatabase
 
-uri             = "bolt://localhost:7687" # url of your neo4j proyect, for example "bolt://localhost:7687"
+uri             = "" # url of your neo4j proyect, for example "bolt://localhost:7687"
 
-userName        = "neo4j" # username 
+userName        = "" # username 
 
-password        = "guyu2968" # user password
+password        = "" # user password
 
 # Connect to the neo4j database server
 
